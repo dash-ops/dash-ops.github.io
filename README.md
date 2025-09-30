@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DashOPS Documentation Website
 
-## Getting Started
+This is the documentation website for DashOPS, built with Next.js, TypeScript, and shadcn/ui components.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** with App Router and Static Export
+- **TypeScript** for type safety
+- **shadcn/ui** components (matching the main frontend)
+- **Tailwind CSS** for styling
+- **GitHub Pages** deployment
+- **Responsive design** for all devices
+
+## 📁 Project Structure
+
+```
+dash-ops-docs/
+├── content/                 # Documentation content (migrated from dash-ops/docs)
+│   ├── plugins/            # Plugin-specific documentation
+│   ├── img/               # Images and assets
+│   └── *.md              # Main documentation files
+├── src/
+│   ├── app/              # Next.js App Router pages
+│   ├── components/       # React components
+│   │   ├── layout/      # Layout components
+│   │   └── ui/          # shadcn/ui components
+│   └── lib/             # Utility functions
+├── .github/workflows/    # GitHub Actions for deployment
+└── out/                 # Static export output (generated)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Development
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+
+- npm or yarn
 
-## Learn More
+### Local Development
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Start development server
+npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Build for production
+npm run build
 
-## Deploy on Vercel
+# Export static files
+npm run export
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Build for production
+- `npm run export` - Build and export static files
+- `npm run lint` - Run ESLint
+
+## 🌐 Deployment
+
+The website is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+### Manual Deployment
+
+1. Build the project: `npm run build`
+2. The static files will be generated in the `out/` directory
+3. These files can be deployed to any static hosting service
+
+## 🎨 Design System
+
+This documentation uses the same design system as the main DashOPS frontend:
+
+- **Components**: shadcn/ui with Radix UI primitives
+- **Styling**: Tailwind CSS with neutral color scheme
+- **Icons**: Lucide React
+- **Typography**: System fonts with proper hierarchy
+
+## 📝 Content Management
+
+Documentation content is stored in the `content/` directory as Markdown files. The structure mirrors the original Jekyll setup for easy migration.
+
+### Adding New Pages
+
+1. Create a new `.md` file in the appropriate directory
+2. Add the route to the navigation in `DocLayout.tsx`
+3. The page will be automatically available
+
+## 🔧 Configuration
+
+- **Next.js**: Configured for static export with GitHub Pages compatibility
+- **Base Path**: Set to `/dash-ops-docs` for GitHub Pages deployment
+- **Images**: Optimized for static hosting
+- **Routing**: File-based routing with automatic static generation
+
+## 📚 Related Projects
+
+- [DashOPS Main Repository](../dash-ops/) - The main application
+- [DashOPS Frontend](../dash-ops/front/) - React frontend with same component library
+
+## 🤝 Contributing
+
+1. Make changes to documentation content in `content/`
+2. Update navigation in `src/components/layout/DocLayout.tsx` if needed
+3. Test locally with `npm run dev`
+4. Push changes to trigger automatic deployment
+
+## 📄 License
+
+This documentation is part of the DashOPS project and follows the same license terms.
