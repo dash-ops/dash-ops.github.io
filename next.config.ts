@@ -6,8 +6,14 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/dash-ops-docs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/dash-ops-docs/' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/docs/' : '',
+  distDir: 'out',
+  skipTrailingSlashRedirect: true,
+  // Enable hash routing for GitHub Pages
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 export default nextConfig;
