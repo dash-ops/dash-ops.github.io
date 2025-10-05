@@ -1,0 +1,97 @@
+import { 
+  BookOpen, 
+  Puzzle, 
+  Code, 
+  Rocket, 
+  Cog, 
+  Cloud,
+  GitBranch,
+  Cpu,
+  Shield,
+  Settings
+} from "lucide-react"
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar"
+import { useLanguage } from "@/contexts/LanguageContext"
+
+interface DocSidebarProps {
+  activeSection: string
+  onSectionChange: (section: string) => void
+}
+
+export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) {
+  const { t } = useLanguage()
+  
+  const navigationItems = [
+    {
+      title: t("nav.getting-started"),
+      items: [
+        { title: t("nav.introduction"), icon: BookOpen, href: "#introduction" },
+        { title: t("nav.installation"), icon: Rocket, href: "#installation" },
+        { title: t("nav.initial-setup"), icon: Cog, href: "#initial-setup" },
+        { title: t("nav.first-deploy"), icon: GitBranch, href: "#first-deploy" },
+      ],
+    },
+    {
+      title: t("nav.plugins"),
+      items: [
+        { title: t("nav.plugins-overview"), icon: Puzzle, href: "#plugins-overview" },
+        { title: t("nav.kubernetes-plugin"), icon: Cpu, href: "#kubernetes-plugin" },
+        { title: t("nav.aws-plugin"), icon: Cloud, href: "#aws-plugin" },
+        { title: t("nav.service-catalog-plugin"), icon: Settings, href: "#service-catalog-plugin" },
+        { title: t("nav.auth-plugin"), icon: Shield, href: "#auth-plugin" },
+      ],
+    },
+    {
+      title: t("nav.api-reference"),
+      items: [
+        { title: t("nav.api-intro"), icon: Code, href: "#api-intro" },
+        { title: t("nav.api-auth"), icon: Shield, href: "#api-auth" },
+        { title: t("nav.backend-guide"), icon: BookOpen, href: "#backend-guide" },
+      ],
+    },
+  ]
+
+  return (
+    <Sidebar className="w-64">
+      <SidebarContent>
+        {navigationItems.map((group) => (
+          <SidebarGroup key={group.title}>
+            <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {group.items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton 
+                      asChild
+                      isActive={activeSection === item.href.slice(1)}
+                    >
+                      <a 
+                        href={item.href}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          onSectionChange(item.href.slice(1))
+                        }}
+                      >
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.title}</span>
+                      </a>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
+      </SidebarContent>
+    </Sidebar>
+  )
+}
