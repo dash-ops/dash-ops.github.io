@@ -4,12 +4,12 @@ This repository contains the documentation website for DashOPS, built with Next.
 
 ## Repository Setup
 
-This repository is named `docs` and serves the documentation at `https://dash-ops.github.io/docs`.
+This repository is named `dash-ops.github.io` and serves the documentation at `https://dash-ops.github.io`.
 
 ### URL Structure
 
-- **Documentation site**: `https://dash-ops.github.io/docs`
-- **Main organization**: `https://dash-ops.github.io` (main DashOPS repository)
+- **Documentation site**: `https://dash-ops.github.io` (root domain)
+- **Main organization**: `https://github.com/dash-ops/dash-ops` (main DashOPS repository)
 
 ## Development
 
@@ -33,8 +33,8 @@ The site is automatically deployed to GitHub Pages when changes are pushed to th
 
 ## URL Structure
 
-- **Documentation site**: `https://dash-ops.github.io/docs`
-- **Main organization**: `https://dash-ops.github.io` (main DashOPS repository)
+- **Documentation site**: `https://dash-ops.github.io` (root domain)
+- **Main organization**: `https://github.com/dash-ops/dash-ops` (main DashOPS repository)
 
 ## SPA Routing
 

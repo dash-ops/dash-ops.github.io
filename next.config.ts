@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: process.env.NODE_ENV === 'production' ? '/docs' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/docs/' : '',
+  basePath: '',
+  assetPrefix: '',
   distDir: 'out',
   skipTrailingSlashRedirect: true,
   // Enable hash routing for GitHub Pages
