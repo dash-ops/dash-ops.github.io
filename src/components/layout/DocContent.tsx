@@ -4,13 +4,17 @@ import {
   InstallationSection,
   ConfigurationSection,
   FirstDeploySection,
+  HelmDeploymentSection,
   PluginsOverviewSection,
   AuthPluginSection,
   AWSPluginSection,
   KubernetesPluginSection,
   ServiceCatalogPluginSection,
   ApiReferenceSection,
-  BackendGuideSection
+  ApiAuthSection,
+  BackendGuideSection,
+  ContributingSection,
+  PluginDevelopmentSection
 } from "../sections"
 import { Breadcrumbs } from "./Breadcrumbs"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -33,6 +37,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.initial-setup") }]
           case "first-deploy":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.first-deploy") }]
+          case "helm-deploy":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.helm-deploy") }]
           case "plugins-overview":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.plugins") }, { label: t("nav.plugins-overview") }]
           case "auth-plugin":
@@ -62,6 +68,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return <ConfigurationSection />
           case "first-deploy":
             return <FirstDeploySection onSectionChange={onSectionChange} />
+          case "helm-deploy":
+            return <HelmDeploymentSection onSectionChange={onSectionChange} />
           case "plugins-overview":
             return <PluginsOverviewSection onSectionChange={onSectionChange} />
           case "auth-plugin":
@@ -73,7 +81,9 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "service-catalog-plugin":
             return <ServiceCatalogPluginSection onSectionChange={onSectionChange} />
           case "api-intro":
+            return <ApiReferenceSection onSectionChange={onSectionChange} />
           case "api-auth":
+            return <ApiAuthSection onSectionChange={onSectionChange} />
           case "api-endpoints":
             return <ApiReferenceSection onSectionChange={onSectionChange} />
           case "backend-guide":
@@ -91,6 +101,7 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "installation":
           case "initial-setup":
           case "first-deploy":
+          case "helm-deploy":
           case "plugins-overview":
           case "auth-plugin":
           case "aws-plugin":

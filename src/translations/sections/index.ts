@@ -9,6 +9,7 @@ import { deployTranslations } from './deploy'
 import { kubernetesPluginTranslations } from './kubernetes-plugin'
 import { serviceCatalogPluginTranslations } from './service-catalog-plugin'
 import { authPluginTranslations } from './auth-plugin'
+import { helmTranslations } from './helm'
 
 // Re-export for individual access if needed
 export {
@@ -21,7 +22,8 @@ export {
   deployTranslations,
   kubernetesPluginTranslations,
   serviceCatalogPluginTranslations,
-  authPluginTranslations
+  authPluginTranslations,
+  helmTranslations
 }
 
 // Function to merge all section translations
@@ -35,6 +37,7 @@ export function mergeSectionTranslations(lang: 'en' | 'pt') {
     ...serviceCatalogPluginTranslations[lang],
     ...authPluginTranslations[lang],
     ...deployTranslations[lang],
+    ...helmTranslations[lang],
     ...pluginDevTranslations[lang],
     ...contributingTranslations[lang],
   }

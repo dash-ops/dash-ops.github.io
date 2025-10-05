@@ -15,6 +15,7 @@ export const en = {
   "nav.installation": "Installation",
   "nav.initial-setup": "Initial Setup",
   "nav.first-deploy": "First Deploy",
+  "nav.helm-deploy": "Deploy with Helm",
   "nav.plugins-overview": "Overview",
   "nav.kubernetes-plugin": "Kubernetes Plugin",
   "nav.aws-plugin": "AWS Plugin",

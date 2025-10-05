@@ -6,7 +6,8 @@ export {
   IntroductionSection,
   InstallationSection,
   ConfigurationSection,
-  FirstDeploySection
+  FirstDeploySection,
+  HelmDeploymentSection
 } from './getting-started'
 
 // Plugin sections
@@ -20,7 +21,8 @@ export {
 
 // API Reference sections
 export {
-  ApiReferenceSection
+  ApiReferenceSection,
+  ApiAuthSection
 } from './api-reference'
 
 // Developer Guide sections

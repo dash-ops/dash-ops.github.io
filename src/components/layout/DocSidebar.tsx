@@ -8,7 +8,8 @@ import {
   GitBranch,
   Cpu,
   Shield,
-  Settings
+  Settings,
+  Container
 } from "lucide-react"
 import {
   Sidebar,
@@ -38,6 +39,7 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
         { title: t("nav.installation"), icon: Rocket, href: "#installation" },
         { title: t("nav.initial-setup"), icon: Cog, href: "#initial-setup" },
         { title: t("nav.first-deploy"), icon: GitBranch, href: "#first-deploy" },
+        { title: t("nav.helm-deploy"), icon: Container, href: "#helm-deploy" },
       ],
     },
     {
