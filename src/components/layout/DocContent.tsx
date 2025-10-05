@@ -54,7 +54,11 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "api-auth":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.api-reference") }, { label: t("nav.api-auth") }]
           case "backend-guide":
-            return [{ label: t("breadcrumb.home") }, { label: t("nav.api-reference") }, { label: t("nav.backend-guide") }]
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.developer-guide") }, { label: t("nav.backend-guide") }]
+          case "contributing":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.developer-guide") }, { label: t("nav.contributing") }]
+          case "plugin-development":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.developer-guide") }, { label: t("nav.plugin-development") }]
           default:
             return [{ label: t("breadcrumb.home") }, { label: t("nav.introduction") }]
         }
@@ -88,6 +92,10 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return <ApiReferenceSection onSectionChange={onSectionChange} />
           case "backend-guide":
             return <BackendGuideSection onSectionChange={onSectionChange} />
+          case "contributing":
+            return <ContributingSection onSectionChange={onSectionChange} />
+          case "plugin-development":
+            return <PluginDevelopmentSection onSectionChange={onSectionChange} />
           case "introduction":
           default:
             return <IntroductionSection onSectionChange={onSectionChange} />
@@ -111,6 +119,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "api-auth":
           case "api-endpoints":
           case "backend-guide":
+          case "contributing":
+          case "plugin-development":
             return renderSection()
 
           default:

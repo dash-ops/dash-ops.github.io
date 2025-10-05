@@ -57,7 +57,14 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
       items: [
         { title: t("nav.api-intro"), icon: Code, href: "#api-intro" },
         { title: t("nav.api-auth"), icon: Shield, href: "#api-auth" },
+      ],
+    },
+    {
+      title: t("nav.developer-guide"),
+      items: [
         { title: t("nav.backend-guide"), icon: BookOpen, href: "#backend-guide" },
+        { title: t("nav.contributing"), icon: GitBranch, href: "#contributing" },
+        { title: t("nav.plugin-development"), icon: Code, href: "#plugin-development" },
       ],
     },
   ]

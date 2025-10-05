@@ -11,6 +11,7 @@ export const en = {
   "nav.getting-started": "Getting Started",
   "nav.plugins": "Plugins",
   "nav.api-reference": "API Reference",
+  "nav.developer-guide": "Developer Guide",
   "nav.introduction": "Introduction",
   "nav.installation": "Installation",
   "nav.initial-setup": "Initial Setup",
@@ -25,6 +26,8 @@ export const en = {
   "nav.api-auth": "Authentication",
   "nav.api-endpoints": "Endpoints",
   "nav.backend-guide": "Backend Guide",
+  "nav.contributing": "Contributing",
+  "nav.plugin-development": "Plugin Development",
 
   // Installation Section
   "install.title": "Installation",

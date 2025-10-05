@@ -11,6 +11,7 @@ export const pt = {
   "nav.getting-started": "Começando",
   "nav.plugins": "Plugins",
   "nav.api-reference": "Referência API",
+  "nav.developer-guide": "Guia do Desenvolvedor",
   "nav.introduction": "Introdução",
   "nav.installation": "Instalação",
   "nav.initial-setup": "Configuração Inicial",
@@ -25,6 +26,8 @@ export const pt = {
   "nav.api-auth": "Autenticação",
   "nav.api-endpoints": "Endpoints",
   "nav.backend-guide": "Guia Backend",
+  "nav.contributing": "Como Contribuir",
+  "nav.plugin-development": "Desenvolvimento de Plugins",
 
   // Installation Section
   "install.title": "Instalação",
