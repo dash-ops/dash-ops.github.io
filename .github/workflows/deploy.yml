@@ -39,6 +39,16 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
+      - name: Setup SPA routing for GitHub Pages
+        run: |
+          # Copy the 404.html to out directory
+          cp public/404.html out/404.html
+          # Copy the index.html script to out directory  
+          cp public/index.html out/index.html
+          # Copy .nojekyll to disable Jekyll processing
+          cp public/.nojekyll out/.nojekyll
+          # Add SPA script to the main index.html
+          sed -i 's|</head>|  <script type="text/javascript">\n    // Single Page Apps for GitHub Pages\n   // This script checks to see if a redirect is present in the query string,\n    // converts it back into the correct url and adds it to the\n    // browser'\''s history using window.history.replaceState(...),\n    // which won'\''t cause the browser to attempt to load the new url.\n    // When the single page app is loaded further down in this file,\n    // the correct url will be waiting in the browser'\''s history for\n    // the single page app to route accordingly.\n    (function(l) {\n      if (l.search[1] === '\''/'\'' ) {\n        var decoded = l.search.slice(1).split('\''&'\'').map(function(s) { \n          return s.replace(/~and~/g, '\''&'\'')\n        }).join('\''?'\'');\n        window.history.replaceState(null, null,\n            l.pathname.slice(0, -1) + decoded + l.hash\n        );\n      }\n    }(window.location))\n  </script>\n</head>|g' out/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
