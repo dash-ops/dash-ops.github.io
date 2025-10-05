@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 export interface SearchResult {
   section: string
   title: string
-  description: string
+  description?: string
   keywords: string[]
 }
 

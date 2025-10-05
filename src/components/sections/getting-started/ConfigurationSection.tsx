@@ -1,10 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Settings, Github, Key, FileText, AlertTriangle, CheckCircle } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import Image from "next/image"
 
 export function ConfigurationSection() {
   const { t } = useLanguage()

@@ -10,7 +10,7 @@ interface ContributingSectionProps {
   onSectionChange: (section: string) => void
 }
 
-export function ContributingSection({ onSectionChange }: ContributingSectionProps) {
+export function ContributingSection({ }: ContributingSectionProps) {
   const { t } = useLanguage()
 
   return (

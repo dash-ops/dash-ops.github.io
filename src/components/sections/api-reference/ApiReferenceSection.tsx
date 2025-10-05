@@ -2,7 +2,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { useLanguage } from "@/contexts/LanguageContext"
 import {
   AlertTriangle,
@@ -13,7 +12,6 @@ import {
   Container,
   Shield,
   Code,
-  ExternalLink,
   CheckCircle,
   XCircle,
   Clock,
@@ -24,7 +22,7 @@ interface ApiReferenceSectionProps {
   onSectionChange?: (section: string) => void
 }
 
-export function ApiReferenceSection({ onSectionChange }: ApiReferenceSectionProps) {
+export function ApiReferenceSection({ }: ApiReferenceSectionProps) {
   const { t } = useLanguage()
 
   const CodeBlock = ({ children, language = "bash" }: { children: string, language?: string }) => (

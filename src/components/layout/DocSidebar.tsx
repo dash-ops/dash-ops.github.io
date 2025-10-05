@@ -23,6 +23,13 @@ import {
 } from "@/components/ui/sidebar"
 import { useLanguage } from "@/contexts/LanguageContext"
 
+interface NavigationItem {
+  title: string
+  href: string
+  icon: React.ComponentType<{ className?: string }>
+  external?: boolean
+}
+
 interface DocSidebarProps {
   activeSection: string
   onSectionChange: (section: string) => void
@@ -83,7 +90,7 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
             <SidebarGroupContent>
               <SidebarMenu>
                 {group.items.map((item) => {
-                  const isExternal = (item as any).external === true
+                  const isExternal = (item as NavigationItem).external === true
                   
                   return (
                     <SidebarMenuItem key={item.title}>

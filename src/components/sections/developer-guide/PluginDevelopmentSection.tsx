@@ -9,7 +9,7 @@ interface PluginDevelopmentSectionProps {
   onSectionChange: (section: string) => void
 }
 
-export function PluginDevelopmentSection({ onSectionChange }: PluginDevelopmentSectionProps) {
+export function PluginDevelopmentSection({ }: PluginDevelopmentSectionProps) {
   const { t } = useLanguage()
 
   return (

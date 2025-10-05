@@ -18,7 +18,7 @@ interface HelmDeploymentSectionProps {
   onSectionChange?: (section: string) => void
 }
 
-export function HelmDeploymentSection({ onSectionChange }: HelmDeploymentSectionProps) {
+export function HelmDeploymentSection({ }: HelmDeploymentSectionProps) {
   const { t } = useLanguage()
 
   const CodeBlock = ({ children, language = "bash" }: { children: string, language?: string }) => (

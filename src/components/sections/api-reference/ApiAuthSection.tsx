@@ -13,7 +13,7 @@ interface ApiAuthSectionProps {
   onSectionChange?: (section: string) => void
 }
 
-export function ApiAuthSection({ onSectionChange }: ApiAuthSectionProps) {
+export function ApiAuthSection({ }: ApiAuthSectionProps) {
   const { t } = useLanguage()
 
   const CodeBlock = ({ children, language = "bash" }: { children: string, language?: string }) => (
