@@ -1,0 +1,73 @@
+---
+title: "Exemplo de MDX"
+description: "Como usar MDX para documentação"
+---
+
+# Exemplo de Documentação em MDX
+
+Este é um exemplo de como você pode escrever documentação usando MDX, que combina **Markdown** com **componentes React**.
+
+## Por que MDX?
+
+<Alert>
+  <AlertDescription>
+    MDX permite escrever markdown puro e incluir componentes React quando necessário!
+  </AlertDescription>
+</Alert>
+
+### Vantagens do MDX:
+
+- ✅ **Fácil de editar**: Escreve markdown normalmente
+- ✅ **Componentes React**: Usa shadcn/ui quando precisar
+- ✅ **Hot Reload**: Mudanças aparecem instantaneamente
+- ✅ **Versionamento**: Git-friendly, fácil fazer PR
+- ✅ **Manutenção**: Atualizar docs fica muito mais rápido
+
+## Exemplo de Uso
+
+### Markdown Simples
+
+Você pode escrever markdown normalmente:
+
+```bash
+# Comandos ficam com syntax highlight
+npm install dash-ops
+npm run dev
+```
+
+### Com Componentes React
+
+<Card>
+  <CardHeader>
+    <CardTitle>Título do Card</CardTitle>
+    <CardDescription>Descrição do card usando componente shadcn/ui</CardDescription>
+  </CardHeader>
+  <CardContent>
+    Conteúdo do card misturado com **markdown**!
+  </CardContent>
+</Card>
+
+### Tabs Interativos
+
+<Tabs defaultValue="pt">
+  <TabsList>
+    <TabsTrigger value="pt">Português</TabsTrigger>
+    <TabsTrigger value="en">English</TabsTrigger>
+  </TabsList>
+  <TabsContent value="pt">
+    Conteúdo em português com **formatação markdown**!
+  </TabsContent>
+  <TabsContent value="en">
+    Content in English with **markdown formatting**!
+  </TabsContent>
+</Tabs>
+
+## Como Editar Documentação
+
+1. Edite o arquivo `.mdx` no diretório `content/docs/`
+2. Salve o arquivo
+3. O site recarrega automaticamente
+4. Faça commit normalmente via Git
+
+**Simples assim!** 🚀
+
