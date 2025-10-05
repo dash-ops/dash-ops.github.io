@@ -69,10 +69,10 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
 
   const getStatusText = (status: string) => {
     switch (status) {
-      case "stable": return "Stable"
-      case "beta": return "Beta"
-      case "alpha": return "Alpha"
-      default: return "Unknown"
+      case "stable": return t("plugins.status.stable")
+      case "beta": return t("plugins.status.beta")
+      case "alpha": return t("plugins.status.alpha")
+      default: return t("plugins.status.unknown")
     }
   }
 
@@ -91,7 +91,7 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
             <span>{t("plugins.system.title")}</span>
           </CardTitle>
           <CardDescription>
-            DashOPS uses a modular plugin architecture that allows you to enable only the cloud services you need.
+            {t("plugins.system.desc")}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -100,9 +100,9 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg mx-auto flex items-center justify-center">
                 <Settings className="h-6 w-6 text-blue-600 dark:text-blue-400" />
               </div>
-              <h3 className="font-semibold">Modular Design</h3>
+              <h3 className="font-semibold">{t("plugins.system.modular.title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Enable only the plugins you need for your infrastructure.
+                {t("plugins.system.modular.desc")}
               </p>
             </div>
             
@@ -110,9 +110,9 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg mx-auto flex items-center justify-center">
                 <CheckCircle className="h-6 w-6 text-green-600 dark:text-green-400" />
               </div>
-              <h3 className="font-semibold">Easy Configuration</h3>
+              <h3 className="font-semibold">{t("plugins.system.config.title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Simple YAML configuration for all plugin settings.
+                {t("plugins.system.config.desc")}
               </p>
             </div>
             
@@ -120,9 +120,9 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg mx-auto flex items-center justify-center">
                 <GitBranch className="h-6 w-6 text-purple-600 dark:text-purple-400" />
               </div>
-              <h3 className="font-semibold">Extensible</h3>
+              <h3 className="font-semibold">{t("plugins.system.extensible.title")}</h3>
               <p className="text-sm text-muted-foreground">
-                Built for future expansion and custom integrations.
+                {t("plugins.system.extensible.desc")}
               </p>
             </div>
           </div>
@@ -154,7 +154,7 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
-                  <h4 className="font-medium mb-2">Key Features:</h4>
+                  <h4 className="font-medium mb-2">{t("plugins.key-features")}:</h4>
                   <ul className="text-sm text-muted-foreground space-y-1">
                     {plugin.features.map((feature, index) => (
                       <li key={index} className="flex items-center space-x-2">
@@ -167,7 +167,7 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
                 
                 <div className="flex items-center justify-between pt-4 border-t">
                   <div className="flex items-center space-x-2">
-                    <span className="text-sm text-muted-foreground">Production Ready:</span>
+                    <span className="text-sm text-muted-foreground">{t("plugins.production-ready")}:</span>
                     {plugin.productionReady ? (
                       <CheckCircle className="h-4 w-4 text-green-600" />
                     ) : (
@@ -191,9 +191,9 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
       {/* Quick Setup */}
       <Card>
         <CardHeader>
-          <CardTitle>Quick Plugin Setup</CardTitle>
+          <CardTitle>{t("plugins.quick-setup.title")}</CardTitle>
           <CardDescription>
-            Enable plugins in your dash-ops.yaml configuration file
+            {t("plugins.quick-setup.desc")}
           </CardDescription>
         </CardHeader>
         <CardContent>
