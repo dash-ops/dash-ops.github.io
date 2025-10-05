@@ -140,7 +140,7 @@ export function DocHeader({ onNavigate }: DocHeaderProps) {
           </DropdownMenu>
           
           <Button variant="ghost" size="icon" asChild>
-            <a href="https://github.com/dashops" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/dash-ops" target="_blank" rel="noopener noreferrer">
               <Github className="h-4 w-4" />
             </a>
           </Button>
