@@ -62,9 +62,14 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
     {
       title: t("nav.developer-guide"),
       items: [
-        { title: t("nav.backend-guide"), icon: BookOpen, href: "#backend-guide" },
         { title: t("nav.contributing"), icon: GitBranch, href: "#contributing" },
         { title: t("nav.plugin-development"), icon: Code, href: "#plugin-development" },
+        { 
+          title: t("nav.backend-guide"), 
+          icon: BookOpen, 
+          href: "https://github.com/dash-ops/dash-ops/blob/main/docs/backend-development-guide.md",
+          external: true 
+        },
       ],
     },
   ]
@@ -77,25 +82,33 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
             <SidebarGroupLabel>{group.title}</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {group.items.map((item) => (
-                  <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton 
-                      asChild
-                      isActive={activeSection === item.href.slice(1)}
-                    >
-                      <a 
-                        href={item.href}
-                        onClick={(e) => {
-                          e.preventDefault()
-                          onSectionChange(item.href.slice(1))
-                        }}
+                {group.items.map((item) => {
+                  const isExternal = (item as any).external === true
+                  
+                  return (
+                    <SidebarMenuItem key={item.title}>
+                      <SidebarMenuButton 
+                        asChild
+                        isActive={!isExternal && activeSection === item.href.slice(1)}
                       >
-                        <item.icon className="h-4 w-4" />
-                        <span>{item.title}</span>
-                      </a>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
+                        <a 
+                          href={item.href}
+                          onClick={(e) => {
+                            if (!isExternal) {
+                              e.preventDefault()
+                              onSectionChange(item.href.slice(1))
+                            }
+                          }}
+                          target={isExternal ? "_blank" : undefined}
+                          rel={isExternal ? "noopener noreferrer" : undefined}
+                        >
+                          <item.icon className="h-4 w-4" />
+                          <span>{item.title}</span>
+                        </a>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  )
+                })}
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>

@@ -12,7 +12,6 @@ import {
   ServiceCatalogPluginSection,
   ApiReferenceSection,
   ApiAuthSection,
-  BackendGuideSection,
   ContributingSection,
   PluginDevelopmentSection
 } from "../sections"
@@ -53,8 +52,6 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return [{ label: t("breadcrumb.home") }, { label: t("nav.api-reference") }, { label: t("nav.api-intro") }]
           case "api-auth":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.api-reference") }, { label: t("nav.api-auth") }]
-          case "backend-guide":
-            return [{ label: t("breadcrumb.home") }, { label: t("nav.developer-guide") }, { label: t("nav.backend-guide") }]
           case "contributing":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.developer-guide") }, { label: t("nav.contributing") }]
           case "plugin-development":
@@ -90,8 +87,6 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return <ApiAuthSection onSectionChange={onSectionChange} />
           case "api-endpoints":
             return <ApiReferenceSection onSectionChange={onSectionChange} />
-          case "backend-guide":
-            return <BackendGuideSection onSectionChange={onSectionChange} />
           case "contributing":
             return <ContributingSection onSectionChange={onSectionChange} />
           case "plugin-development":
@@ -118,7 +113,6 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "api-intro":
           case "api-auth":
           case "api-endpoints":
-          case "backend-guide":
           case "contributing":
           case "plugin-development":
             return renderSection()

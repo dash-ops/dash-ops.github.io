@@ -27,7 +27,6 @@ export {
 
 // Developer Guide sections
 export {
-  BackendGuideSection,
   PluginDevelopmentSection,
   ContributingSection
 } from './developer-guide'

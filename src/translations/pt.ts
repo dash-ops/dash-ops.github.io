@@ -5,6 +5,7 @@ export const pt = {
 
   // Header
   "search.placeholder": "Buscar documentação...",
+  "search.no-results": "Nenhum resultado encontrado. Tente outras palavras-chave.",
   "experimental": "EXPERIMENTAL",
 
   // Navigation

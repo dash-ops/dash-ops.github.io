@@ -19,7 +19,7 @@ export default function Home() {
             onSectionChange={navigate} 
           />
           <SidebarInset className="flex flex-col flex-1">
-            <DocHeader />
+            <DocHeader onNavigate={navigate} />
             <DocContent 
               activeSection={currentSection} 
               onSectionChange={navigate} 
