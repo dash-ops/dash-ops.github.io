@@ -7,6 +7,7 @@ import {
   Cpu, 
   GitBranch, 
   Settings,
+  Activity,
   CheckCircle,
   AlertTriangle,
   Clock
@@ -64,6 +65,17 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
       statusIcon: Clock,
       productionReady: false,
       features: ["Multi-cluster", "Pod management", "Scaling operations"]
+    },
+    {
+      id: "observability-plugin",
+      name: "Observability Plugin",
+      description: "Logs, traces, and metrics with service context integration",
+      icon: Activity,
+      status: "beta",
+      statusColor: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
+      statusIcon: AlertTriangle,
+      productionReady: false,
+      features: ["Loki integration", "Tempo integration", "Service context", "Provider selector"]
     }
   ]
 
