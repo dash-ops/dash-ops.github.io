@@ -9,7 +9,8 @@ import {
   Cpu,
   Shield,
   Settings,
-  Container
+  Container,
+  Activity
 } from "lucide-react"
 import {
   Sidebar,
@@ -57,6 +58,7 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
         { title: t("nav.aws-plugin"), icon: Cloud, href: "#aws-plugin" },
         { title: t("nav.service-catalog-plugin"), icon: Settings, href: "#service-catalog-plugin" },
         { title: t("nav.auth-plugin"), icon: Shield, href: "#auth-plugin" },
+        { title: t("nav.observability-plugin"), icon: Activity, href: "#observability-plugin" },
       ],
     },
     {

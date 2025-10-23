@@ -77,6 +77,12 @@ export function useDocSearch() {
       description: 'Service catalog management',
       keywords: ['service', 'catalog', 'services', 'catálogo', 'serviços']
     },
+    {
+      section: 'observability-plugin',
+      title: t('nav.observability-plugin'),
+      description: t('observability-plugin.subtitle'),
+      keywords: ['observability', 'logs', 'traces', 'metrics', 'loki', 'tempo', 'prometheus', 'monitoring', 'observabilidade', 'logs', 'rastreamento', 'métricas']
+    },
     // API Reference
     {
       section: 'api-intro',
