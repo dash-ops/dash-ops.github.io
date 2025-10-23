@@ -215,7 +215,8 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               &nbsp;&nbsp;- &apos;Auth&apos; # Required - Authentication<br/>
               &nbsp;&nbsp;- &apos;ServiceCatalog&apos; # Optional - Service registry<br/>
               &nbsp;&nbsp;- &apos;AWS&apos; # Optional - AWS operations<br/>
-              &nbsp;&nbsp;- &apos;Kubernetes&apos; # Optional - K8s operations
+              &nbsp;&nbsp;- &apos;Kubernetes&apos; # Optional - K8s operations<br/>
+              &nbsp;&nbsp;- &apos;Observability&apos; # Optional - Logs, traces, metrics
             </code>
           </div>
         </CardContent>
