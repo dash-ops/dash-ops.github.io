@@ -23,6 +23,7 @@ export const en = {
   "nav.aws-plugin": "AWS Plugin",
   "nav.service-catalog-plugin": "Service Catalog",
   "nav.auth-plugin": "Authentication",
+  "nav.observability-plugin": "Observability",
   "nav.api-intro": "API Introduction",
   "nav.api-auth": "Authentication",
   "nav.api-endpoints": "Endpoints",

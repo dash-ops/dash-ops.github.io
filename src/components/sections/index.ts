@@ -16,7 +16,8 @@ export {
   KubernetesPluginSection,
   AWSPluginSection,
   ServiceCatalogPluginSection,
-  AuthPluginSection
+  AuthPluginSection,
+  ObservabilityPluginSection
 } from './plugins'
 
 // API Reference sections

@@ -23,6 +23,7 @@ export const pt = {
   "nav.aws-plugin": "Plugin AWS",
   "nav.service-catalog-plugin": "Catálogo de Serviços",
   "nav.auth-plugin": "Autenticação",
+  "nav.observability-plugin": "Observabilidade",
   "nav.api-intro": "Introdução à API",
   "nav.api-auth": "Autenticação",
   "nav.api-endpoints": "Endpoints",

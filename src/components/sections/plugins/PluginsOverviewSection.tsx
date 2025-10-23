@@ -7,6 +7,7 @@ import {
   Cpu, 
   GitBranch, 
   Settings,
+  Activity,
   CheckCircle,
   AlertTriangle,
   Clock
@@ -64,6 +65,17 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
       statusIcon: Clock,
       productionReady: false,
       features: ["Multi-cluster", "Pod management", "Scaling operations"]
+    },
+    {
+      id: "observability-plugin",
+      name: "Observability Plugin",
+      description: "Logs, traces, and metrics with service context integration",
+      icon: Activity,
+      status: "alpha",
+      statusColor: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+      statusIcon: Clock,
+      productionReady: false,
+      features: ["Loki integration", "Tempo integration", "Service context", "Provider selector"]
     }
   ]
 
@@ -203,7 +215,8 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
               &nbsp;&nbsp;- &apos;Auth&apos; # Required - Authentication<br/>
               &nbsp;&nbsp;- &apos;ServiceCatalog&apos; # Optional - Service registry<br/>
               &nbsp;&nbsp;- &apos;AWS&apos; # Optional - AWS operations<br/>
-              &nbsp;&nbsp;- &apos;Kubernetes&apos; # Optional - K8s operations
+              &nbsp;&nbsp;- &apos;Kubernetes&apos; # Optional - K8s operations<br/>
+              &nbsp;&nbsp;- &apos;Observability&apos; # Optional - Logs, traces, metrics
             </code>
           </div>
         </CardContent>

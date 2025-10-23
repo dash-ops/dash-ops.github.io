@@ -10,6 +10,7 @@ import {
   AWSPluginSection,
   KubernetesPluginSection,
   ServiceCatalogPluginSection,
+  ObservabilityPluginSection,
   ApiReferenceSection,
   ApiAuthSection,
   ContributingSection,
@@ -48,6 +49,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return [{ label: t("breadcrumb.home") }, { label: t("nav.plugins") }, { label: t("nav.kubernetes-plugin") }]
           case "service-catalog-plugin":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.plugins") }, { label: t("nav.service-catalog-plugin") }]
+          case "observability-plugin":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.plugins") }, { label: t("nav.observability-plugin") }]
           case "api-intro":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.api-reference") }, { label: t("nav.api-intro") }]
           case "api-auth":
@@ -81,6 +84,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return <KubernetesPluginSection onSectionChange={onSectionChange} />
           case "service-catalog-plugin":
             return <ServiceCatalogPluginSection onSectionChange={onSectionChange} />
+          case "observability-plugin":
+            return <ObservabilityPluginSection onSectionChange={onSectionChange} />
           case "api-intro":
             return <ApiReferenceSection onSectionChange={onSectionChange} />
           case "api-auth":
@@ -110,6 +115,7 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
           case "aws-plugin":
           case "kubernetes-plugin":
           case "service-catalog-plugin":
+          case "observability-plugin":
           case "api-intro":
           case "api-auth":
           case "api-endpoints":
