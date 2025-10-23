@@ -71,9 +71,9 @@ export function PluginsOverviewSection({ onSectionChange }: PluginsOverviewSecti
       name: "Observability Plugin",
       description: "Logs, traces, and metrics with service context integration",
       icon: Activity,
-      status: "beta",
-      statusColor: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300",
-      statusIcon: AlertTriangle,
+      status: "alpha",
+      statusColor: "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300",
+      statusIcon: Clock,
       productionReady: false,
       features: ["Loki integration", "Tempo integration", "Service context", "Provider selector"]
     }
