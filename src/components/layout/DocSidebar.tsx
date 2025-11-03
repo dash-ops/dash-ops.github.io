@@ -10,7 +10,8 @@ import {
   Shield,
   Settings,
   Container,
-  Activity
+  Activity,
+  Layout
 } from "lucide-react"
 import {
   Sidebar,
@@ -77,6 +78,12 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
           title: t("nav.backend-guide"), 
           icon: BookOpen, 
           href: "https://github.com/dash-ops/dash-ops/blob/main/docs/backend-development-guide.md",
+          external: true 
+        },
+        { 
+          title: t("nav.frontend-guide"), 
+          icon: Layout, 
+          href: "https://github.com/dash-ops/dash-ops/blob/main/docs/frontend-development-guide.md",
           external: true 
         },
       ],

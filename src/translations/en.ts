@@ -28,6 +28,7 @@ export const en = {
   "nav.api-auth": "Authentication",
   "nav.api-endpoints": "Endpoints",
   "nav.backend-guide": "Backend Guide",
+  "nav.frontend-guide": "Frontend Guide",
   "nav.contributing": "Contributing",
   "nav.plugin-development": "Plugin Development",
 

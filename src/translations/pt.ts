@@ -28,6 +28,7 @@ export const pt = {
   "nav.api-auth": "Autenticação",
   "nav.api-endpoints": "Endpoints",
   "nav.backend-guide": "Guia Backend",
+  "nav.frontend-guide": "Guia Frontend",
   "nav.contributing": "Como Contribuir",
   "nav.plugin-development": "Desenvolvimento de Plugins",
 
