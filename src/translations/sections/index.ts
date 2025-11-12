@@ -2,7 +2,9 @@
 import { pluginDevTranslations } from './plugin-dev'
 import { contributingTranslations } from './contributing'
 import { introTranslations } from './intro'
+import { quickStartTranslations } from './quick-start'
 import { setupTranslations } from './setup'
+import { advancedConfigTranslations } from './advanced-config'
 import { apiReferenceTranslations } from './api-reference'
 import { backendGuideTranslations } from './backend-guide'
 import { awsPluginTranslations } from './aws-plugin'
@@ -18,7 +20,9 @@ export {
   pluginDevTranslations,
   contributingTranslations,
   introTranslations,
+  quickStartTranslations,
   setupTranslations,
+  advancedConfigTranslations,
   apiReferenceTranslations,
   backendGuideTranslations,
   awsPluginTranslations,
@@ -34,7 +38,9 @@ export {
 export function mergeSectionTranslations(lang: 'en' | 'pt') {
   return {
     ...introTranslations[lang],
+    ...quickStartTranslations[lang],
     ...setupTranslations[lang],
+    ...advancedConfigTranslations[lang],
     ...apiReferenceTranslations[lang],
     ...backendGuideTranslations[lang],
     ...awsPluginTranslations[lang],

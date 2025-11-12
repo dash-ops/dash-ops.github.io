@@ -46,10 +46,9 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
       title: t("nav.getting-started"),
       items: [
         { title: t("nav.introduction"), icon: BookOpen, href: "#introduction" },
-        { title: t("nav.installation"), icon: Rocket, href: "#installation" },
+        { title: t("nav.quick-start"), icon: Rocket, href: "#quick-start" },
         { title: t("nav.setup-wizard"), icon: Wand2, href: "#setup-wizard" },
-        { title: t("nav.initial-setup"), icon: Cog, href: "#initial-setup" },
-        { title: t("nav.first-deploy"), icon: GitBranch, href: "#first-deploy" },
+        { title: t("nav.advanced-config"), icon: Cog, href: "#advanced-config" },
         { title: t("nav.helm-deploy"), icon: Container, href: "#helm-deploy" },
       ],
     },

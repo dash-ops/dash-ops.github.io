@@ -1,7 +1,6 @@
 // Getting Started sections
 export { IntroductionSection } from './IntroductionSection'
-export { InstallationSection } from './InstallationSection'
+export { QuickStartSection } from './QuickStartSection'
 export { SetupWizardSection } from './SetupWizardSection'
-export { ConfigurationSection } from './ConfigurationSection'
-export { FirstDeploySection } from './FirstDeploySection'
+export { AdvancedConfigSection } from './AdvancedConfigSection'
 export { HelmDeploymentSection } from './HelmDeploymentSection'

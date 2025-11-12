@@ -1,10 +1,9 @@
 // Import all sections from the organized structure
 import {
   IntroductionSection,
-  InstallationSection,
+  QuickStartSection,
   SetupWizardSection,
-  ConfigurationSection,
-  FirstDeploySection,
+  AdvancedConfigSection,
   HelmDeploymentSection,
   PluginsOverviewSection,
   AuthPluginSection,
@@ -32,14 +31,12 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
         switch (activeSection) {
           case "introduction":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.introduction") }]
-          case "installation":
-            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.installation") }]
+          case "quick-start":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.quick-start") }]
           case "setup-wizard":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.setup-wizard") }]
-          case "initial-setup":
-            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.initial-setup") }]
-          case "first-deploy":
-            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.first-deploy") }]
+          case "advanced-config":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.advanced-config") }]
           case "helm-deploy":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.helm-deploy") }]
           case "plugins-overview":
@@ -69,14 +66,12 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
 
       const renderSection = () => {
         switch (activeSection) {
-          case "installation":
-            return <InstallationSection />
+          case "quick-start":
+            return <QuickStartSection onSectionChange={onSectionChange} />
           case "setup-wizard":
-            return <SetupWizardSection />
-          case "initial-setup":
-            return <ConfigurationSection />
-          case "first-deploy":
-            return <FirstDeploySection onSectionChange={onSectionChange} />
+            return <SetupWizardSection onSectionChange={onSectionChange} />
+          case "advanced-config":
+            return <AdvancedConfigSection onSectionChange={onSectionChange} />
           case "helm-deploy":
             return <HelmDeploymentSection onSectionChange={onSectionChange} />
           case "plugins-overview":

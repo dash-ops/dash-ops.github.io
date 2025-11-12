@@ -1,43 +1,47 @@
 import { useState, useEffect } from 'react'
 
 export function useHashRouter() {
-  const [currentSection, setCurrentSection] = useState<string>(() => {
-    // Get initial section from hash or default to 'introduction'
-    if (typeof window !== 'undefined') {
-      const hash = window.location.hash.slice(1)
-      return hash || 'introduction'
-    }
-    return 'introduction'
-  })
+  const [currentSection, setCurrentSection] = useState<string>('introduction')
+  const [hydrated, setHydrated] = useState(false)
 
-  const navigate = (section: string) => {
-    setCurrentSection(section)
+  const updateHash = (section: string) => {
     if (typeof window !== 'undefined') {
       window.location.hash = section
-      // Update browser history without page reload
       window.history.replaceState(null, '', `#${section}`)
     }
   }
 
+  const navigate = (section: string) => {
+    setCurrentSection(section)
+    updateHash(section)
+  }
+
   useEffect(() => {
+    setHydrated(true)
+
+    const hash = window.location.hash.slice(1)
+    if (hash) {
+      setCurrentSection(hash)
+    } else {
+      setCurrentSection('quick-start')
+      updateHash('quick-start')
+    }
+
     const handleHashChange = () => {
-      const hash = window.location.hash.slice(1)
-      if (hash && hash !== currentSection) {
-        setCurrentSection(hash)
+      const newHash = window.location.hash.slice(1)
+      if (newHash) {
+        setCurrentSection(newHash)
       }
     }
 
-    // Listen for hash changes
     window.addEventListener('hashchange', handleHashChange)
-    
-    // Also listen for popstate (back/forward buttons)
     window.addEventListener('popstate', handleHashChange)
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange)
       window.removeEventListener('popstate', handleHashChange)
     }
-  }, [currentSection])
+  }, [])
 
-  return { currentSection, navigate }
+  return { currentSection: hydrated ? currentSection : 'introduction', navigate }
 }

@@ -1,7 +1,7 @@
 export const introTranslations = {
   en: {
     "intro.title": "DashOPS - Developer Experience Hub with AI (Beta)",
-    "intro.subtitle": "⚠️ BETA VERSION - NOT RECOMMENDED FOR PRODUCTION USE. An experimental integration platform that connects your existing tools (Kubernetes, AWS, Grafana, ArgoCD) into a seamless developer experience, enhanced by contextual AI assistance and an extensible plugin system.",
+    "intro.subtitle": "⚠️ BETA VERSION - NOT RECOMMENDED FOR PRODUCTION USE. An experimental integration platform that connects your existing tools (Kubernetes, AWS, Loki, Tempo) into a seamless developer experience, enhanced by contextual AI assistance and an extensible plugin system.",
     "intro.experimental-warning": "🚧 This project is actively under development and should only be used for testing and evaluation purposes. Missing enterprise security features, limited error handling, and breaking changes expected in updates.",
     "intro.beta-badge": "🚧 BETA - Testing Only",
 
@@ -34,7 +34,7 @@ export const introTranslations = {
   },
   pt: {
     "intro.title": "DashOPS - Hub de Experiência do Desenvolvedor com IA (Beta)",
-    "intro.subtitle": "⚠️ VERSÃO BETA - NÃO RECOMENDADO PARA USO EM PRODUÇÃO. Uma plataforma de integração experimental que conecta suas ferramentas existentes (Kubernetes, AWS, Grafana, ArgoCD) em uma experiência de desenvolvedor perfeita, aprimorada por assistência de IA contextual e um sistema de plugins extensível.",
+    "intro.subtitle": "⚠️ VERSÃO BETA - NÃO RECOMENDADO PARA USO EM PRODUÇÃO. Uma plataforma de integração experimental que conecta suas ferramentas existentes (Kubernetes, AWS, Loki, Tempo) em uma experiência de desenvolvedor perfeita, aprimorada por assistência de IA contextual e um sistema de plugins extensível.",
     "intro.experimental-warning": "🚧 Este projeto está em desenvolvimento ativo e deve ser usado apenas para testes e avaliação. Faltam recursos de segurança empresariais, tratamento limitado de erros e mudanças disruptivas esperadas nas atualizações.",
     "intro.beta-badge": "🚧 BETA - Apenas Testes",
 

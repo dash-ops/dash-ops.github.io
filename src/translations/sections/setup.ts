@@ -15,9 +15,41 @@ export const setupTranslations = {
     "setup.step-3-open": "Open browser",
     "setup.first-time-info": "When you open the application for the first time (with no dash-ops.yaml file), you'll automatically be redirected to the Setup Wizard.",
     
-    // Wizard Steps
-    "setup.wizard-steps": "Setup Wizard Tabs",
-    "setup.wizard-steps-desc": "The wizard is organized into 7 intuitive tabs for each aspect of your configuration",
+    // Usage Scenarios
+    "setup.scenarios.title": "How to Use the Setup Wizard",
+    "setup.scenario-1-title": "First-Time Setup",
+    "setup.scenario-1-desc": "Automatically launched when no configuration exists",
+    "setup.scenario-1-details": "Start DashOPS without a dash-ops.yaml file and the wizard opens automatically",
+    "setup.scenario-1-step-1": "Select plugins you want to use",
+    "setup.scenario-1-step-2": "Enter credentials (masked in UI)",
+    "setup.scenario-1-step-3": "Click 'Complete Setup' to save",
+    "setup.automatic": "Automatic",
+    
+    "setup.scenario-2-title": "Update Settings",
+    "setup.scenario-2-desc": "Modify configuration after initial setup",
+    "setup.scenario-2-details": "Access Settings page from the dashboard to add providers, update credentials, or change plugins",
+    "setup.update-credentials": "update providers & credentials",
+    "setup.anytime": "Anytime",
+    
+    "setup.scenario-3-title": "Manual YAML",
+    "setup.scenario-3-desc": "For infrastructure-as-code workflows",
+    "setup.scenario-3-details": "Create/edit dash-ops.yaml manually and the UI reflects your changes with secrets masked",
+    "setup.yaml-reference": "View YAML Reference",
+    "setup.advanced": "Advanced",
+    
+    // Wizard Walkthrough
+    "setup.wizard-walkthrough.title": "Setup Wizard Walkthrough",
+    "setup.wizard-walkthrough.desc": "Overview of the 7 configuration tabs",
+    "setup.configuration-tabs": "Configuration Tabs",
+    "setup.basic": "Basic",
+    "setup.select-features": "Select features",
+    "setup.optional": "Optional",
+    "setup.key-features": "Key Features",
+    "setup.feature-dynamic-tabs": "Dynamic tabs based on selected plugins",
+    "setup.feature-live-validation": "Live validation with specific error messages",
+    "setup.feature-secret-masking": "Secret masking - API never returns real values",
+    "setup.feature-auto-save": "Auto-saves to ./dash-ops.yaml or $DASH_CONFIG",
+    "setup.view-yaml-reference": "View YAML Reference",
     
     // Tab 1: General
     "setup.tab-general": "General Settings",
@@ -148,9 +180,41 @@ export const setupTranslations = {
     "setup.step-3-open": "Abrir navegador",
     "setup.first-time-info": "Quando você abrir a aplicação pela primeira vez (sem arquivo dash-ops.yaml), será redirecionado automaticamente para o Assistente de Configuração.",
     
-    // Wizard Steps
-    "setup.wizard-steps": "Abas do Assistente de Configuração",
-    "setup.wizard-steps-desc": "O assistente está organizado em 7 abas intuitivas para cada aspecto da sua configuração",
+    // Usage Scenarios
+    "setup.scenarios.title": "Como Usar o Assistente de Configuração",
+    "setup.scenario-1-title": "Setup Inicial",
+    "setup.scenario-1-desc": "Lançado automaticamente quando não existe configuração",
+    "setup.scenario-1-details": "Inicie o DashOPS sem um arquivo dash-ops.yaml e o assistente abre automaticamente",
+    "setup.scenario-1-step-1": "Selecione plugins que deseja usar",
+    "setup.scenario-1-step-2": "Insira credenciais (mascaradas na UI)",
+    "setup.scenario-1-step-3": "Clique em 'Completar Setup' para salvar",
+    "setup.automatic": "Automático",
+    
+    "setup.scenario-2-title": "Atualizar Configurações",
+    "setup.scenario-2-desc": "Modifique a configuração após setup inicial",
+    "setup.scenario-2-details": "Acesse a página de Configurações do dashboard para adicionar providers, atualizar credenciais ou mudar plugins",
+    "setup.update-credentials": "atualizar providers e credenciais",
+    "setup.anytime": "A qualquer momento",
+    
+    "setup.scenario-3-title": "YAML Manual",
+    "setup.scenario-3-desc": "Para workflows de infraestrutura-como-código",
+    "setup.scenario-3-details": "Crie/edite dash-ops.yaml manualmente e a UI reflete suas mudanças com segredos mascarados",
+    "setup.yaml-reference": "Ver Referência YAML",
+    "setup.advanced": "Avançado",
+    
+    // Wizard Walkthrough
+    "setup.wizard-walkthrough.title": "Tour pelo Assistente",
+    "setup.wizard-walkthrough.desc": "Visão geral das 7 abas de configuração",
+    "setup.configuration-tabs": "Abas de Configuração",
+    "setup.basic": "Básico",
+    "setup.select-features": "Selecionar recursos",
+    "setup.optional": "Opcional",
+    "setup.key-features": "Principais Recursos",
+    "setup.feature-dynamic-tabs": "Abas dinâmicas baseadas em plugins selecionados",
+    "setup.feature-live-validation": "Validação em tempo real com mensagens específicas de erro",
+    "setup.feature-secret-masking": "Mascaramento de segredos - API nunca retorna valores reais",
+    "setup.feature-auto-save": "Auto-salva em ./dash-ops.yaml ou $DASH_CONFIG",
+    "setup.view-yaml-reference": "Ver Referência YAML",
     
     // Tab 1: General
     "setup.tab-general": "Configurações Gerais",

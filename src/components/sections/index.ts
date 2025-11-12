@@ -4,10 +4,9 @@
 // Getting Started sections
 export {
   IntroductionSection,
-  InstallationSection,
+  QuickStartSection,
   SetupWizardSection,
-  ConfigurationSection,
-  FirstDeploySection,
+  AdvancedConfigSection,
   HelmDeploymentSection
 } from './getting-started'
 

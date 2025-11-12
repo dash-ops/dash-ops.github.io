@@ -1,11 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import { Wand2, CheckCircle, Shield, Settings, AlertTriangle, Info } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Wand2, CheckCircle, Shield, Settings, AlertTriangle, Info, Code, RefreshCw } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
-import Image from "next/image"
 
-export function SetupWizardSection() {
+interface SetupWizardSectionProps {
+  onSectionChange: (section: string) => void
+}
+
+export function SetupWizardSection({ onSectionChange }: SetupWizardSectionProps) {
   const { t } = useLanguage()
 
   return (
@@ -30,251 +34,169 @@ export function SetupWizardSection() {
         </AlertDescription>
       </Alert>
 
-      {/* Getting Started */}
+      {/* Three Usage Scenarios */}
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold tracking-tight">{t("setup.scenarios.title")}</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Scenario 1: First-Time Setup */}
+          <Card className="border-2 border-green-200 dark:border-green-800">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Wand2 className="h-5 w-5 text-green-600" />
+                <span>{t("setup.scenario-1-title")}</span>
+              </CardTitle>
+              <CardDescription>
+                {t("setup.scenario-1-desc")}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Badge variant="default">{t("setup.automatic")}</Badge>
+              <p className="text-sm text-muted-foreground">
+                {t("setup.scenario-1-details")}
+              </p>
+              <div className="bg-muted p-3 rounded text-sm space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-3 w-3 text-green-600" />
+                  <span>{t("setup.scenario-1-step-1")}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-3 w-3 text-green-600" />
+                  <span>{t("setup.scenario-1-step-2")}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-3 w-3 text-green-600" />
+                  <span>{t("setup.scenario-1-step-3")}</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Scenario 2: Update Settings */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <RefreshCw className="h-5 w-5 text-blue-600" />
+                <span>{t("setup.scenario-2-title")}</span>
+              </CardTitle>
+              <CardDescription>
+                {t("setup.scenario-2-desc")}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Badge variant="secondary">{t("setup.anytime")}</Badge>
+              <p className="text-sm text-muted-foreground">
+                {t("setup.scenario-2-details")}
+              </p>
+              <div className="bg-muted p-3 rounded text-sm">
+                <code>
+                  Dashboard → Settings → {t("setup.update-credentials")}
+                </code>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Scenario 3: Manual YAML */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2">
+                <Code className="h-5 w-5 text-orange-600" />
+                <span>{t("setup.scenario-3-title")}</span>
+              </CardTitle>
+              <CardDescription>
+                {t("setup.scenario-3-desc")}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <Badge variant="outline">{t("setup.advanced")}</Badge>
+              <p className="text-sm text-muted-foreground">
+                {t("setup.scenario-3-details")}
+              </p>
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => onSectionChange('advanced-config')}
+              >
+                {t("setup.yaml-reference")}
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* Setup Wizard Walkthrough */}
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
-            <Wand2 className="h-5 w-5" />
-            <span>{t("setup.getting-started")}</span>
-          </CardTitle>
+          <CardTitle>{t("setup.wizard-walkthrough.title")}</CardTitle>
           <CardDescription>
-            {t("setup.getting-started-desc")}
+            {t("setup.wizard-walkthrough.desc")}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="bg-muted p-4 rounded-lg">
-            <code className="text-sm">
-              # {t("setup.step-1-backend")}<br/>
-              go run main.go<br/><br/>
-              
-              # {t("setup.step-2-frontend")}<br/>
-              cd front<br/>
-              yarn && yarn dev<br/><br/>
-              
-              # {t("setup.step-3-open")}<br/>
-              # Open http://localhost:5173 in your browser
-            </code>
-          </div>
-
-          <Alert>
-            <Info className="h-4 w-4" />
-            <AlertDescription>
-              {t("setup.first-time-info")}
-            </AlertDescription>
-          </Alert>
-        </CardContent>
-      </Card>
-
-      {/* Setup Wizard Steps */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("setup.wizard-steps")}</CardTitle>
-          <CardDescription>
-            {t("setup.wizard-steps-desc")}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Tab 1: General Settings */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                1
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-general")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-general-desc")}
-              </p>
-              <ul className="text-sm space-y-1 list-disc list-inside">
-                <li><strong>{t("setup.field-port")}</strong> - {t("setup.field-port-desc")}</li>
-                <li><strong>{t("setup.field-origin")}</strong> - {t("setup.field-origin-desc")}</li>
-                <li><strong>{t("setup.field-frontend-path")}</strong> - {t("setup.field-frontend-path-desc")}</li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Tab 2: Plugin Selection */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                2
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-plugins")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-plugins-desc")}
-              </p>
-              <div className="grid grid-cols-2 gap-2 mt-2">
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">🔐 Authentication</strong>
-                  <p className="text-xs text-muted-foreground">GitHub OAuth2</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Tab Overview */}
+            <div className="space-y-3">
+              <h4 className="font-semibold text-sm">{t("setup.configuration-tabs")}</h4>
+              <div className="space-y-2">
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">1</Badge>
+                  <span>{t("setup.tab-general")}</span>
+                  <Badge variant="secondary" className="text-xs">{t("setup.basic")}</Badge>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">☁️ AWS</strong>
-                  <p className="text-xs text-muted-foreground">EC2 operations</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">2</Badge>
+                  <span>{t("setup.tab-plugins")}</span>
+                  <Badge variant="secondary" className="text-xs">{t("setup.select-features")}</Badge>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">⚙️ Kubernetes</strong>
-                  <p className="text-xs text-muted-foreground">Multi-cluster</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">3</Badge>
+                  <span>{t("setup.tab-auth")}</span>
+                  <Badge variant="destructive" className="text-xs">{t("setup.required")}</Badge>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">📋 Service Catalog</strong>
-                  <p className="text-xs text-muted-foreground">Service registry</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">4</Badge>
+                  <span>{t("setup.tab-kubernetes")}</span>
+                  <Badge variant="outline" className="text-xs">{t("setup.optional")}</Badge>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">📊 Observability</strong>
-                  <p className="text-xs text-muted-foreground">Logs & Traces</p>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">5</Badge>
+                  <span>{t("setup.tab-aws")}</span>
+                  <Badge variant="outline" className="text-xs">{t("setup.optional")}</Badge>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">6</Badge>
+                  <span>{t("setup.tab-service-catalog")}</span>
+                  <Badge variant="outline" className="text-xs">{t("setup.optional")}</Badge>
+                </div>
+                <div className="flex items-center gap-2 text-sm">
+                  <Badge variant="outline" className="w-6 h-6 p-0 flex items-center justify-center text-xs">7</Badge>
+                  <span>{t("setup.tab-observability")}</span>
+                  <Badge variant="outline" className="text-xs">{t("setup.optional")}</Badge>
                 </div>
               </div>
-              <Alert className="mt-3">
-                <Info className="h-4 w-4" />
-                <AlertDescription className="text-sm">
-                  {t("setup.plugin-selection-tip")}
-                </AlertDescription>
-              </Alert>
             </div>
-          </div>
 
-          {/* Tab 3: Authentication */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                3
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-auth")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-auth-desc")}
-              </p>
-              <div className="bg-muted p-4 rounded-lg mt-2">
-                <p className="text-sm font-medium mb-2">{t("setup.auth-fields")}</p>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>{t("setup.field-client-id")}</strong> - {t("setup.field-client-id-desc")}</li>
-                  <li>• <strong>{t("setup.field-client-secret")}</strong> - {t("setup.field-client-secret-desc")}</li>
-                  <li>• <strong>{t("setup.field-org-permission")}</strong> - {t("setup.field-org-permission-desc")}</li>
-                  <li>• <strong>{t("setup.field-scopes")}</strong> - {t("setup.field-scopes-desc")}</li>
-                </ul>
-              </div>
-              <Alert className="mt-3">
-                <AlertTriangle className="h-4 w-4" />
-                <AlertDescription className="text-sm">
-                  {t("setup.github-oauth-setup-required")}
-                </AlertDescription>
-              </Alert>
-            </div>
-          </div>
-
-          {/* Tab 4: Kubernetes */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                4
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-kubernetes")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-kubernetes-desc")}
-              </p>
-              <div className="bg-muted p-4 rounded-lg mt-2">
-                <p className="text-sm font-medium mb-2">{t("setup.k8s-cluster-fields")}</p>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>{t("setup.field-cluster-name")}</strong> - {t("setup.field-cluster-name-desc")}</li>
-                  <li>• <strong>{t("setup.field-kubeconfig")}</strong> - {t("setup.field-kubeconfig-desc")}</li>
-                  <li>• <strong>{t("setup.field-context")}</strong> - {t("setup.field-context-desc")}</li>
-                </ul>
-              </div>
-              <Alert className="mt-3">
-                <Info className="h-4 w-4" />
-                <AlertDescription className="text-sm">
-                  {t("setup.k8s-multiple-clusters")}
-                </AlertDescription>
-              </Alert>
-            </div>
-          </div>
-
-          {/* Tab 5: AWS */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                5
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-aws")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-aws-desc")}
-              </p>
-              <div className="bg-muted p-4 rounded-lg mt-2">
-                <p className="text-sm font-medium mb-2">{t("setup.aws-account-fields")}</p>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>{t("setup.field-account-name")}</strong> - {t("setup.field-account-name-desc")}</li>
-                  <li>• <strong>{t("setup.field-region")}</strong> - {t("setup.field-region-desc")}</li>
-                  <li>• <strong>{t("setup.field-access-key")}</strong> - {t("setup.field-access-key-desc")}</li>
-                  <li>• <strong>{t("setup.field-secret-key")}</strong> - {t("setup.field-secret-key-desc")}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Tab 6: Service Catalog */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                6
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-service-catalog")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-service-catalog-desc")}
-              </p>
-              <div className="bg-muted p-4 rounded-lg mt-2">
-                <p className="text-sm font-medium mb-2">{t("setup.catalog-storage-options")}</p>
-                <ul className="text-sm space-y-1">
-                  <li>• <strong>{t("setup.storage-filesystem")}</strong> - {t("setup.storage-filesystem-desc")}</li>
-                  <li>• <strong>{t("setup.storage-github")}</strong> - {t("setup.storage-github-desc")}</li>
-                  <li>• <strong>{t("setup.storage-s3")}</strong> - {t("setup.storage-s3-desc")}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Tab 7: Observability */}
-          <div className="space-y-3">
-            <div className="flex items-center space-x-2">
-              <Badge variant="default" className="w-6 h-6 rounded-full p-0 flex items-center justify-center">
-                7
-              </Badge>
-              <h3 className="text-lg font-semibold">{t("setup.tab-observability")}</h3>
-            </div>
-            <div className="pl-8 space-y-2">
-              <p className="text-sm text-muted-foreground">
-                {t("setup.tab-observability-desc")}
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">📝 Logs (Loki)</strong>
-                  <p className="text-xs text-muted-foreground mt-1">{t("setup.logs-provider-desc")}</p>
+            {/* Key Features */}
+            <div className="space-y-3">
+              <h4 className="font-semibold text-sm">{t("setup.key-features")}</h4>
+              <div className="space-y-2">
+                <div className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5" />
+                  <span>{t("setup.feature-dynamic-tabs")}</span>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">🔍 Traces (Tempo)</strong>
-                  <p className="text-xs text-muted-foreground mt-1">{t("setup.traces-provider-desc")}</p>
+                <div className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5" />
+                  <span>{t("setup.feature-live-validation")}</span>
                 </div>
-                <div className="bg-muted p-3 rounded">
-                  <strong className="text-sm">📊 Metrics (Prometheus)</strong>
-                  <p className="text-xs text-muted-foreground mt-1">{t("setup.metrics-provider-desc")}</p>
+                <div className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5" />
+                  <span>{t("setup.feature-secret-masking")}</span>
+                </div>
+                <div className="flex items-start gap-2 text-sm">
+                  <CheckCircle className="h-4 w-4 text-green-600 mt-0.5" />
+                  <span>{t("setup.feature-auto-save")}</span>
                 </div>
               </div>
-              <Alert className="mt-3">
-                <Info className="h-4 w-4" />
-                <AlertDescription className="text-sm">
-                  {t("setup.observability-multiple-providers")}
-                </AlertDescription>
-              </Alert>
             </div>
           </div>
         </CardContent>
@@ -318,7 +240,7 @@ export function SetupWizardSection() {
         </CardContent>
       </Card>
 
-      {/* Configuration File Output */}
+      {/* Configuration File */}
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
@@ -350,90 +272,15 @@ export function SetupWizardSection() {
             </AlertDescription>
           </Alert>
 
-          <div className="space-y-2">
-            <h4 className="font-semibold text-sm">{t("setup.example-output")}</h4>
-            <div className="bg-muted p-4 rounded-lg">
-              <code className="text-sm">
-                port: 8080<br/>
-                origin: http://localhost:5173<br/>
-                headers:<br/>
-                &nbsp;&nbsp;- Content-Type<br/>
-                &nbsp;&nbsp;- Authorization<br/>
-                front: front/dist<br/><br/>
-                
-                plugins:<br/>
-                &nbsp;&nbsp;- Auth<br/>
-                &nbsp;&nbsp;- Kubernetes<br/>
-                &nbsp;&nbsp;- AWS<br/><br/>
-                
-                auth:<br/>
-                &nbsp;&nbsp;- provider: github<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;clientId: $&#123;GITHUB_CLIENT_ID&#125;<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;clientSecret: $&#123;GITHUB_CLIENT_SECRET&#125;<br/>
-                &nbsp;&nbsp;&nbsp;&nbsp;# ...additional auth config
-              </code>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Updating Settings Later */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("setup.updating-settings-title")}</CardTitle>
-          <CardDescription>
-            {t("setup.updating-settings-desc")}
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="bg-muted p-4 rounded-lg">
-            <p className="text-sm">{t("setup.settings-page-access")}</p>
-            <p className="text-sm font-medium mt-2">
-              {t("setup.sidebar-menu")} → Settings → {t("setup.update-providers")}
-            </p>
-          </div>
-
-          <Alert>
-            <CheckCircle className="h-4 w-4" />
-            <AlertDescription>
-              {t("setup.settings-same-forms")}
-            </AlertDescription>
-          </Alert>
-        </CardContent>
-      </Card>
-
-      {/* Next Steps */}
-      <Card>
-        <CardHeader>
-          <CardTitle>{t("setup.next-steps-title")}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-3">
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-              <div>
-                <p className="font-medium">{t("setup.next-step-1-title")}</p>
-                <p className="text-sm text-muted-foreground">{t("setup.next-step-1-desc")}</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-              <div>
-                <p className="font-medium">{t("setup.next-step-2-title")}</p>
-                <p className="text-sm text-muted-foreground">{t("setup.next-step-2-desc")}</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <CheckCircle className="h-5 w-5 text-green-600 mt-0.5" />
-              <div>
-                <p className="font-medium">{t("setup.next-step-3-title")}</p>
-                <p className="text-sm text-muted-foreground">{t("setup.next-step-3-desc")}</p>
-              </div>
-            </div>
-          </div>
+          <Button 
+            variant="outline" 
+            size="sm"
+            onClick={() => onSectionChange('advanced-config')}
+          >
+            {t("setup.view-yaml-reference")}
+          </Button>
         </CardContent>
       </Card>
     </div>
   )
 }
-
