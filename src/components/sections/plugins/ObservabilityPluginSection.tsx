@@ -7,7 +7,9 @@ import {
   Database, 
   GitBranch, 
   Server,
-  FileText
+  FileText,
+  Compass,
+  ListChecks
 } from "lucide-react"
 
 interface ObservabilityPluginSectionProps {
@@ -30,6 +32,25 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
 
       {/* Overview Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <Card>
+          <CardHeader className="pb-3">
+            <CardTitle className="flex items-center gap-2">
+              <Compass className="h-5 w-5" />
+              {t("observability-plugin.explorer.title")}
+            </CardTitle>
+            <CardDescription>
+              {t("observability-plugin.explorer.description")}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              <Badge variant="secondary">{t("observability-plugin.explorer.modes")}</Badge>
+              <Badge variant="secondary">{t("observability-plugin.explorer.context")}</Badge>
+              <Badge variant="secondary">{t("observability-plugin.explorer.auto-refresh")}</Badge>
+            </div>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2">
@@ -68,7 +89,7 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="md:col-span-3">
           <CardHeader className="pb-3">
             <CardTitle className="flex items-center gap-2">
               <BarChart3 className="h-5 w-5" />
@@ -182,10 +203,6 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
         labels:
           environment: "local"
           cluster: "kind-dashops-dev"
-    retention: "30d"
-    query_limit: 1000
-    stream_limit: 100
-    levels: ["debug", "info", "warn", "error"]
   traces:
     providers:
       - name: "tempo-local"
@@ -195,9 +212,6 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
         enabled: true
         auth:
           type: "none"
-    retention: "7d"
-    query_limit: 100
-    sampling_rate: 1.0
   metrics:
     providers:
       - name: "prometheus-local"
@@ -206,10 +220,7 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
         timeout: "30s"
         enabled: true
         auth:
-          type: "none"
-    retention: "90d"
-    query_limit: 1000
-    scrape_interval: "15s"`}
+          type: "none"`}
               </code>
             </pre>
           </CardContent>
@@ -230,34 +241,47 @@ export function ObservabilityPluginSection({ }: ObservabilityPluginSectionProps)
                 {t("observability-plugin.api-endpoints.logs.title")}
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-2 text-sm">
-                <div className="font-mono bg-muted px-2 py-1 rounded">
-                  GET /api/v1/observability/logs
-                </div>
-                <p className="text-muted-foreground">
-                  {t("observability-plugin.api-endpoints.logs.description")}
-                </p>
+            <CardContent className="space-y-3 text-sm">
+              <div className="font-mono bg-muted px-2 py-1 rounded">
+                GET /api/v1/observability/explorer
               </div>
+              <p className="text-muted-foreground">
+                {t("observability-plugin.api-endpoints.logs.description")}
+              </p>
+              <pre className="bg-muted p-3 rounded overflow-x-auto">
+                <code>{`/api/v1/observability/explorer?
+  provider=loki-local&
+  query={app="checkout"}
+  time_range_from=1h&
+  mode=logs`}</code>
+              </pre>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <GitBranch className="h-5 w-5" />
+                <ListChecks className="h-5 w-5" />
                 {t("observability-plugin.api-endpoints.traces.title")}
               </CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-2 text-sm">
-                <div className="font-mono bg-muted px-2 py-1 rounded">
-                  GET /api/v1/observability/traces
-                </div>
-                <p className="text-muted-foreground">
-                  {t("observability-plugin.api-endpoints.traces.description")}
-                </p>
+            <CardContent className="space-y-3 text-sm">
+              <div className="font-mono bg-muted px-2 py-1 rounded">
+                GET /api/v1/observability/providers
               </div>
+              <p className="text-muted-foreground">
+                {t("observability-plugin.api-endpoints.traces.description")}
+              </p>
+              <pre className="bg-muted p-3 rounded overflow-x-auto">
+                <code>{`{
+  "success": true,
+  "data": {
+    "logsProviders": ["loki-local"],
+    "tracesProviders": ["tempo-local"],
+    "metricsProviders": ["prometheus-local"]
+  }
+}`}</code>
+              </pre>
             </CardContent>
           </Card>
         </div>
