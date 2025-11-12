@@ -1,10 +1,7 @@
 "use client"
 
-import { createContext, useContext, useState, ReactNode } from "react"
-import { pt } from "@/translations/pt"
-import { en } from "@/translations/en"
-
-type Language = "pt" | "en"
+import { createContext, useContext, useEffect, useState, ReactNode, useCallback, useMemo } from "react"
+import { loadDictionary, type Language } from "@/translations/loadDictionary"
 
 interface LanguageContextType {
   language: Language
@@ -14,9 +11,15 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-const translations: Record<Language, Record<string, string>> = {
-  pt,
-  en
+const dictionaryCache = new Map<Language, Record<string, string>>()
+
+async function getTranslations(language: Language) {
+  if (dictionaryCache.has(language)) {
+    return dictionaryCache.get(language) as Record<string, string>
+  }
+  const dictionary = await loadDictionary(language)
+  dictionaryCache.set(language, dictionary)
+  return dictionary
 }
 
 interface LanguageProviderProps {
@@ -25,16 +28,39 @@ interface LanguageProviderProps {
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
   const [language, setLanguage] = useState<Language>("pt")
-  
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations[typeof language]] || key
-  }
-  
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
-    </LanguageContext.Provider>
+  const [translations, setTranslations] = useState<Record<string, string>>({})
+
+  useEffect(() => {
+    let active = true
+
+    getTranslations(language).then((dictionary) => {
+      if (active) {
+        setTranslations(dictionary)
+      }
+    })
+
+    return () => {
+      active = false
+    }
+  }, [language])
+
+  const t = useCallback(
+    (key: string): string => {
+      return translations[key] ?? key
+    },
+    [translations]
   )
+
+  const value = useMemo(
+    () => ({
+      language,
+      setLanguage,
+      t,
+    }),
+    [language, t]
+  )
+
+  return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>
 }
 
 export function useLanguage() {
