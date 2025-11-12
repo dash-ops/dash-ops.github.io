@@ -2,6 +2,7 @@
 import {
   IntroductionSection,
   InstallationSection,
+  SetupWizardSection,
   ConfigurationSection,
   FirstDeploySection,
   HelmDeploymentSection,
@@ -33,6 +34,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
             return [{ label: t("breadcrumb.home") }, { label: t("nav.introduction") }]
           case "installation":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.installation") }]
+          case "setup-wizard":
+            return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.setup-wizard") }]
           case "initial-setup":
             return [{ label: t("breadcrumb.home") }, { label: t("nav.getting-started") }, { label: t("nav.initial-setup") }]
           case "first-deploy":
@@ -68,6 +71,8 @@ export function DocContent({ activeSection, onSectionChange }: DocContentProps) 
         switch (activeSection) {
           case "installation":
             return <InstallationSection />
+          case "setup-wizard":
+            return <SetupWizardSection />
           case "initial-setup":
             return <ConfigurationSection />
           case "first-deploy":

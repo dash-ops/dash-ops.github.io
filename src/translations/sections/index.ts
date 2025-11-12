@@ -2,6 +2,7 @@
 import { pluginDevTranslations } from './plugin-dev'
 import { contributingTranslations } from './contributing'
 import { introTranslations } from './intro'
+import { setupTranslations } from './setup'
 import { apiReferenceTranslations } from './api-reference'
 import { backendGuideTranslations } from './backend-guide'
 import { awsPluginTranslations } from './aws-plugin'
@@ -17,6 +18,7 @@ export {
   pluginDevTranslations,
   contributingTranslations,
   introTranslations,
+  setupTranslations,
   apiReferenceTranslations,
   backendGuideTranslations,
   awsPluginTranslations,
@@ -32,6 +34,7 @@ export {
 export function mergeSectionTranslations(lang: 'en' | 'pt') {
   return {
     ...introTranslations[lang],
+    ...setupTranslations[lang],
     ...apiReferenceTranslations[lang],
     ...backendGuideTranslations[lang],
     ...awsPluginTranslations[lang],

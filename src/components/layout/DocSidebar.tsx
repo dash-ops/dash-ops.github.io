@@ -11,7 +11,8 @@ import {
   Settings,
   Container,
   Activity,
-  Layout
+  Layout,
+  Wand2
 } from "lucide-react"
 import {
   Sidebar,
@@ -46,6 +47,7 @@ export function DocSidebar({ activeSection, onSectionChange }: DocSidebarProps) 
       items: [
         { title: t("nav.introduction"), icon: BookOpen, href: "#introduction" },
         { title: t("nav.installation"), icon: Rocket, href: "#installation" },
+        { title: t("nav.setup-wizard"), icon: Wand2, href: "#setup-wizard" },
         { title: t("nav.initial-setup"), icon: Cog, href: "#initial-setup" },
         { title: t("nav.first-deploy"), icon: GitBranch, href: "#first-deploy" },
         { title: t("nav.helm-deploy"), icon: Container, href: "#helm-deploy" },
