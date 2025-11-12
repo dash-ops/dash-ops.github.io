@@ -5,6 +5,7 @@
 export {
   IntroductionSection,
   InstallationSection,
+  SetupWizardSection,
   ConfigurationSection,
   FirstDeploySection,
   HelmDeploymentSection
